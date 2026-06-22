@@ -186,6 +186,129 @@ function Contact() {
               </motion.a>
             ))}
           </div>
+
+          {/* Glowing Cyberpunk Fire/Flame Effect */}
+          <div className="absolute bottom-0 left-1/2 -translate-x-1/2 translate-y-[25%] w-[85%] h-24 pointer-events-none select-none z-[-1] overflow-visible">
+            {/* Outer Deep Red/Orange Glow */}
+            <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[100%] h-16 bg-gradient-to-t from-red-600 via-orange-600 to-transparent blur-2xl opacity-60 animate-pulse" />
+            
+            {/* Inner Vibrant Yellow Glow */}
+            <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[70%] h-12 bg-gradient-to-t from-orange-500 via-yellow-400 to-transparent blur-xl opacity-80" />
+
+            {/* SVG Flame Vectors that warp and flicker */}
+            <div className="absolute bottom-0 left-0 right-0 h-full flex justify-center items-end overflow-visible">
+              <svg viewBox="0 0 100 50" className="w-[180px] md:w-[260px] h-20 drop-shadow-[0_-8px_20px_rgba(239,68,68,0.7)] overflow-visible">
+                <defs>
+                  {/* Fire gradients */}
+                  <linearGradient id="outerFire" x1="0%" y1="100%" x2="0%" y2="0%">
+                    <stop offset="0%" stopColor="#dc2626" stopOpacity="0.9" />
+                    <stop offset="50%" stopColor="#f97316" stopOpacity="0.7" />
+                    <stop offset="100%" stopColor="#facc15" stopOpacity="0" />
+                  </linearGradient>
+
+                  <linearGradient id="innerFire" x1="0%" y1="100%" x2="0%" y2="0%">
+                    <stop offset="0%" stopColor="#ea580c" stopOpacity="0.95" />
+                    <stop offset="60%" stopColor="#fbbf24" stopOpacity="0.8" />
+                    <stop offset="100%" stopColor="#ffffff" stopOpacity="0" />
+                  </linearGradient>
+                </defs>
+
+                {/* Layer 1: Outer Red Flame */}
+                <motion.path
+                  d="M 10 50 Q 25 20 40 5 Q 50 12 60 5 Q 75 20 90 50 Z"
+                  fill="url(#outerFire)"
+                  animate={{
+                    d: [
+                      "M 10 50 Q 25 20 40 5 Q 50 12 60 5 Q 75 20 90 50 Z",
+                      "M 10 50 Q 22 24 38 8 Q 52 16 62 4 Q 78 22 90 50 Z",
+                      "M 10 50 Q 28 18 42 3 Q 48 8 58 6 Q 72 18 90 50 Z",
+                      "M 10 50 Q 25 20 40 5 Q 50 12 60 5 Q 75 20 90 50 Z"
+                    ]
+                  }}
+                  transition={{
+                    duration: 1.5,
+                    repeat: Infinity,
+                    ease: "easeInOut"
+                  }}
+                />
+
+                {/* Layer 2: Inner Flame Core */}
+                <motion.path
+                  d="M 22 50 Q 32 25 45 15 Q 50 20 55 15 Q 68 25 78 50 Z"
+                  fill="url(#innerFire)"
+                  animate={{
+                    d: [
+                      "M 22 50 Q 32 25 45 15 Q 50 20 55 15 Q 68 25 78 50 Z",
+                      "M 22 50 Q 35 22 43 18 Q 48 16 57 12 Q 65 28 78 50 Z",
+                      "M 22 50 Q 30 28 47 12 Q 52 24 53 18 Q 70 22 78 50 Z",
+                      "M 22 50 Q 32 25 45 15 Q 50 20 55 15 Q 68 25 78 50 Z"
+                    ]
+                  }}
+                  transition={{
+                    duration: 1.1,
+                    repeat: Infinity,
+                    ease: "easeInOut",
+                    delay: 0.15
+                  }}
+                />
+
+                {/* Spark Particles */}
+                <motion.circle
+                  cx="45"
+                  cy="25"
+                  r="1.8"
+                  fill="#fef08a"
+                  animate={{
+                    y: [0, -35],
+                    x: [0, -6, 6, 0],
+                    opacity: [1, 0.9, 0],
+                    scale: [1, 1.2, 0.4]
+                  }}
+                  transition={{
+                    duration: 1.6,
+                    repeat: Infinity,
+                    ease: "easeOut"
+                  }}
+                />
+                <motion.circle
+                  cx="55"
+                  cy="20"
+                  r="1.2"
+                  fill="#f97316"
+                  animate={{
+                    y: [0, -30],
+                    x: [0, 4, -4, 0],
+                    opacity: [1, 0.8, 0],
+                    scale: [1, 1.1, 0.3]
+                  }}
+                  transition={{
+                    duration: 1.3,
+                    repeat: Infinity,
+                    ease: "easeOut",
+                    delay: 0.4
+                  }}
+                />
+                <motion.circle
+                  cx="38"
+                  cy="35"
+                  r="2.2"
+                  fill="#dc2626"
+                  animate={{
+                    y: [0, -42],
+                    x: [0, -3, 3, 0],
+                    opacity: [1, 0.7, 0],
+                    scale: [1, 1.3, 0.2]
+                  }}
+                  transition={{
+                    duration: 2.0,
+                    repeat: Infinity,
+                    ease: "easeOut",
+                    delay: 0.8
+                  }}
+                />
+              </svg>
+            </div>
+          </div>
         </motion.div>
       </motion.div>
     </section>
