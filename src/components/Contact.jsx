@@ -193,7 +193,7 @@ function Contact() {
             {/* 1. LEFT SMALL THRUSTER */}
             <div 
               style={{ transform: "translateZ(-10px)" }}
-              className="absolute bottom-0 left-0 -translate-x-1/2 translate-y-[90%] w-12 h-20 overflow-visible"
+              className="absolute bottom-0 left-2 md:left-4 translate-y-[90%] w-12 h-20 overflow-visible"
             >
               {/* Glow */}
               <div className="absolute top-0 left-1/2 -translate-x-1/2 w-14 h-14 bg-cyan-500/25 rounded-full blur-xl opacity-60" />
@@ -247,7 +247,7 @@ function Contact() {
             {/* 2. RIGHT SMALL THRUSTER */}
             <div 
               style={{ transform: "translateZ(-10px)" }}
-              className="absolute bottom-0 right-0 translate-x-1/2 translate-y-[90%] w-12 h-20 overflow-visible"
+              className="absolute bottom-0 right-2 md:right-4 translate-y-[90%] w-12 h-20 overflow-visible"
             >
               {/* Glow */}
               <div className="absolute top-0 left-1/2 -translate-x-1/2 w-14 h-14 bg-cyan-500/25 rounded-full blur-xl opacity-60" />
