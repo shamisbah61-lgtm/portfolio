@@ -187,127 +187,226 @@ function Contact() {
             ))}
           </div>
 
-          {/* Glowing Cyberpunk Fire/Flame Effect */}
-          <div className="absolute bottom-0 left-1/2 -translate-x-1/2 translate-y-[25%] w-[85%] h-24 pointer-events-none select-none z-[-1] overflow-visible">
-            {/* Outer Deep Red/Orange Glow */}
-            <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[100%] h-16 bg-gradient-to-t from-red-600 via-orange-600 to-transparent blur-2xl opacity-60 animate-pulse" />
+          {/* Glowing Cyberpunk Nitro Thruster Blue Flames (Left, Right, and Long Center) */}
+          <div className="absolute bottom-0 inset-x-0 h-0 pointer-events-none z-[-1] overflow-visible">
             
-            {/* Inner Vibrant Yellow Glow */}
-            <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[70%] h-12 bg-gradient-to-t from-orange-500 via-yellow-400 to-transparent blur-xl opacity-80" />
-
-            {/* SVG Flame Vectors that warp and flicker */}
-            <div className="absolute bottom-0 left-0 right-0 h-full flex justify-center items-end overflow-visible">
-              <svg viewBox="0 0 100 50" className="w-[180px] md:w-[260px] h-20 drop-shadow-[0_-8px_20px_rgba(239,68,68,0.7)] overflow-visible">
+            {/* 1. LEFT SMALL THRUSTER */}
+            <div 
+              style={{ transform: "translateZ(-10px)" }}
+              className="absolute bottom-0 left-[12%] -translate-x-1/2 translate-y-[90%] w-12 h-20 overflow-visible"
+            >
+              {/* Glow */}
+              <div className="absolute top-0 left-1/2 -translate-x-1/2 w-14 h-14 bg-cyan-500/25 rounded-full blur-xl opacity-60" />
+              
+              <svg viewBox="0 0 40 100" className="w-full h-full overflow-visible drop-shadow-[0_0_15px_rgba(34,211,238,0.7)]">
                 <defs>
-                  {/* Fire gradients */}
-                  <linearGradient id="outerFire" x1="0%" y1="100%" x2="0%" y2="0%">
-                    <stop offset="0%" stopColor="#dc2626" stopOpacity="0.9" />
-                    <stop offset="50%" stopColor="#f97316" stopOpacity="0.7" />
-                    <stop offset="100%" stopColor="#facc15" stopOpacity="0" />
+                  <linearGradient id="nitroGlowLeft" x1="0%" y1="0%" x2="0%" y2="100%">
+                    <stop offset="0%" stopColor="#ffffff" stopOpacity="1" />
+                    <stop offset="20%" stopColor="#22d3ee" stopOpacity="0.9" />
+                    <stop offset="50%" stopColor="#06b6d4" stopOpacity="0.6" />
+                    <stop offset="100%" stopColor="#3b82f6" stopOpacity="0" />
                   </linearGradient>
-
-                  <linearGradient id="innerFire" x1="0%" y1="100%" x2="0%" y2="0%">
-                    <stop offset="0%" stopColor="#ea580c" stopOpacity="0.95" />
-                    <stop offset="60%" stopColor="#fbbf24" stopOpacity="0.8" />
-                    <stop offset="100%" stopColor="#ffffff" stopOpacity="0" />
+                  <linearGradient id="nitroCoreLeft" x1="0%" y1="0%" x2="0%" y2="100%">
+                    <stop offset="0%" stopColor="#ffffff" stopOpacity="1" />
+                    <stop offset="40%" stopColor="#e0f7fa" stopOpacity="0.9" />
+                    <stop offset="100%" stopColor="#22d3ee" stopOpacity="0" />
                   </linearGradient>
                 </defs>
-
-                {/* Layer 1: Outer Red Flame */}
                 <motion.path
-                  d="M 10 50 Q 25 20 40 5 Q 50 12 60 5 Q 75 20 90 50 Z"
-                  fill="url(#outerFire)"
+                  d="M 10 0 H 30 L 25 90 Q 20 100 15 90 Z"
+                  fill="url(#nitroGlowLeft)"
                   animate={{
-                    d: [
-                      "M 10 50 Q 25 20 40 5 Q 50 12 60 5 Q 75 20 90 50 Z",
-                      "M 10 50 Q 22 24 38 8 Q 52 16 62 4 Q 78 22 90 50 Z",
-                      "M 10 50 Q 28 18 42 3 Q 48 8 58 6 Q 72 18 90 50 Z",
-                      "M 10 50 Q 25 20 40 5 Q 50 12 60 5 Q 75 20 90 50 Z"
-                    ]
+                    scaleY: [1, 1.15, 0.92, 1.08, 1],
+                    scaleX: [1, 0.95, 1.05, 0.97, 1],
                   }}
                   transition={{
-                    duration: 1.5,
+                    duration: 0.18,
                     repeat: Infinity,
-                    ease: "easeInOut"
+                    ease: "linear"
                   }}
+                  style={{ originY: 0 }}
+                />
+                <motion.path
+                  d="M 14 0 H 26 L 23 75 Q 20 83 17 75 Z"
+                  fill="url(#nitroCoreLeft)"
+                  animate={{
+                    scaleY: [1, 1.1, 0.95, 1.05, 1],
+                    scaleX: [1, 1.02, 0.98, 1.01, 1],
+                  }}
+                  transition={{
+                    duration: 0.12,
+                    repeat: Infinity,
+                    ease: "linear",
+                    delay: 0.04
+                  }}
+                  style={{ originY: 0 }}
+                />
+              </svg>
+            </div>
+
+            {/* 2. RIGHT SMALL THRUSTER */}
+            <div 
+              style={{ transform: "translateZ(-10px)" }}
+              className="absolute bottom-0 right-[12%] translate-x-1/2 translate-y-[90%] w-12 h-20 overflow-visible"
+            >
+              {/* Glow */}
+              <div className="absolute top-0 left-1/2 -translate-x-1/2 w-14 h-14 bg-cyan-500/25 rounded-full blur-xl opacity-60" />
+              
+              <svg viewBox="0 0 40 100" className="w-full h-full overflow-visible drop-shadow-[0_0_15px_rgba(34,211,238,0.7)]">
+                <defs>
+                  <linearGradient id="nitroGlowRight" x1="0%" y1="0%" x2="0%" y2="100%">
+                    <stop offset="0%" stopColor="#ffffff" stopOpacity="1" />
+                    <stop offset="20%" stopColor="#22d3ee" stopOpacity="0.9" />
+                    <stop offset="50%" stopColor="#06b6d4" stopOpacity="0.6" />
+                    <stop offset="100%" stopColor="#3b82f6" stopOpacity="0" />
+                  </linearGradient>
+                  <linearGradient id="nitroCoreRight" x1="0%" y1="0%" x2="0%" y2="100%">
+                    <stop offset="0%" stopColor="#ffffff" stopOpacity="1" />
+                    <stop offset="40%" stopColor="#e0f7fa" stopOpacity="0.9" />
+                    <stop offset="100%" stopColor="#22d3ee" stopOpacity="0" />
+                  </linearGradient>
+                </defs>
+                <motion.path
+                  d="M 10 0 H 30 L 25 90 Q 20 100 15 90 Z"
+                  fill="url(#nitroGlowRight)"
+                  animate={{
+                    scaleY: [1, 1.14, 0.93, 1.07, 1],
+                    scaleX: [1, 0.97, 1.03, 0.99, 1],
+                  }}
+                  transition={{
+                    duration: 0.16,
+                    repeat: Infinity,
+                    ease: "linear",
+                    delay: 0.05
+                  }}
+                  style={{ originY: 0 }}
+                />
+                <motion.path
+                  d="M 14 0 H 26 L 23 75 Q 20 83 17 75 Z"
+                  fill="url(#nitroCoreRight)"
+                  animate={{
+                    scaleY: [1, 1.07, 0.94, 1.06, 1],
+                    scaleX: [1, 1.04, 0.96, 1.02, 1],
+                  }}
+                  transition={{
+                    duration: 0.11,
+                    repeat: Infinity,
+                    ease: "linear",
+                    delay: 0.07
+                  }}
+                  style={{ originY: 0 }}
+                />
+              </svg>
+            </div>
+
+            {/* 3. CENTER LONG THRUSTER (NALLAM LENGTH) */}
+            <div 
+              style={{ transform: "translateZ(-15px)" }}
+              className="absolute bottom-0 left-1/2 -translate-x-1/2 translate-y-[90%] w-24 h-48 md:w-32 md:h-64 overflow-visible"
+            >
+              {/* Large Glow */}
+              <div className="absolute top-0 left-1/2 -translate-x-1/2 w-32 h-32 bg-cyan-500/30 rounded-full blur-2xl opacity-80" />
+              
+              <svg viewBox="0 0 40 100" className="w-full h-full overflow-visible drop-shadow-[0_0_25px_rgba(34,211,238,0.85)]">
+                <defs>
+                  <linearGradient id="nitroGlowCenter" x1="0%" y1="0%" x2="0%" y2="100%">
+                    <stop offset="0%" stopColor="#ffffff" stopOpacity="1" />
+                    <stop offset="15%" stopColor="#00f2fe" stopOpacity="0.95" />
+                    <stop offset="45%" stopColor="#22d3ee" stopOpacity="0.85" />
+                    <stop offset="70%" stopColor="#0284c7" stopOpacity="0.5" />
+                    <stop offset="100%" stopColor="#3b82f6" stopOpacity="0" />
+                  </linearGradient>
+                  <linearGradient id="nitroCoreCenter" x1="0%" y1="0%" x2="0%" y2="100%">
+                    <stop offset="0%" stopColor="#ffffff" stopOpacity="1" />
+                    <stop offset="35%" stopColor="#e0f7fa" stopOpacity="0.95" />
+                    <stop offset="65%" stopColor="#00f2fe" stopOpacity="0.5" />
+                    <stop offset="100%" stopColor="#22d3ee" stopOpacity="0" />
+                  </linearGradient>
+                </defs>
+                <motion.path
+                  d="M 10 0 H 30 L 25 92 Q 20 100 15 92 Z"
+                  fill="url(#nitroGlowCenter)"
+                  animate={{
+                    scaleY: [1, 1.12, 0.94, 1.06, 1],
+                    scaleX: [1, 0.96, 1.04, 0.98, 1],
+                  }}
+                  transition={{
+                    duration: 0.14,
+                    repeat: Infinity,
+                    ease: "linear"
+                  }}
+                  style={{ originY: 0 }}
+                />
+                <motion.path
+                  d="M 14 0 H 26 L 23 78 Q 20 85 17 78 Z"
+                  fill="url(#nitroCoreCenter)"
+                  animate={{
+                    scaleY: [1, 1.08, 0.96, 1.04, 1],
+                    scaleX: [1, 1.03, 0.97, 1.01, 1],
+                  }}
+                  transition={{
+                    duration: 0.09,
+                    repeat: Infinity,
+                    ease: "linear",
+                    delay: 0.03
+                  }}
+                  style={{ originY: 0 }}
                 />
 
-                {/* Layer 2: Inner Flame Core */}
-                <motion.path
-                  d="M 22 50 Q 32 25 45 15 Q 50 20 55 15 Q 68 25 78 50 Z"
-                  fill="url(#innerFire)"
+                {/* Shooting Sparks */}
+                <motion.circle
+                  cx="20"
+                  cy="15"
+                  r="1.6"
+                  fill="#ffffff"
                   animate={{
-                    d: [
-                      "M 22 50 Q 32 25 45 15 Q 50 20 55 15 Q 68 25 78 50 Z",
-                      "M 22 50 Q 35 22 43 18 Q 48 16 57 12 Q 65 28 78 50 Z",
-                      "M 22 50 Q 30 28 47 12 Q 52 24 53 18 Q 70 22 78 50 Z",
-                      "M 22 50 Q 32 25 45 15 Q 50 20 55 15 Q 68 25 78 50 Z"
-                    ]
+                    y: [0, 85],
+                    opacity: [1, 0],
+                    scale: [1, 0.3]
                   }}
                   transition={{
-                    duration: 1.1,
+                    duration: 0.7,
                     repeat: Infinity,
-                    ease: "easeInOut",
+                    ease: "easeIn"
+                  }}
+                />
+                <motion.circle
+                  cx="16"
+                  cy="25"
+                  r="1"
+                  fill="#22d3ee"
+                  animate={{
+                    y: [0, 70],
+                    opacity: [1, 0],
+                    scale: [1, 0.2]
+                  }}
+                  transition={{
+                    duration: 0.5,
+                    repeat: Infinity,
+                    ease: "easeIn",
                     delay: 0.15
                   }}
                 />
-
-                {/* Spark Particles */}
                 <motion.circle
-                  cx="45"
-                  cy="25"
-                  r="1.8"
-                  fill="#fef08a"
-                  animate={{
-                    y: [0, -35],
-                    x: [0, -6, 6, 0],
-                    opacity: [1, 0.9, 0],
-                    scale: [1, 1.2, 0.4]
-                  }}
-                  transition={{
-                    duration: 1.6,
-                    repeat: Infinity,
-                    ease: "easeOut"
-                  }}
-                />
-                <motion.circle
-                  cx="55"
+                  cx="24"
                   cy="20"
                   r="1.2"
-                  fill="#f97316"
+                  fill="#00f2fe"
                   animate={{
-                    y: [0, -30],
-                    x: [0, 4, -4, 0],
-                    opacity: [1, 0.8, 0],
-                    scale: [1, 1.1, 0.3]
+                    y: [0, 75],
+                    opacity: [1, 0],
+                    scale: [1, 0.2]
                   }}
                   transition={{
-                    duration: 1.3,
+                    duration: 0.6,
                     repeat: Infinity,
-                    ease: "easeOut",
-                    delay: 0.4
-                  }}
-                />
-                <motion.circle
-                  cx="38"
-                  cy="35"
-                  r="2.2"
-                  fill="#dc2626"
-                  animate={{
-                    y: [0, -42],
-                    x: [0, -3, 3, 0],
-                    opacity: [1, 0.7, 0],
-                    scale: [1, 1.3, 0.2]
-                  }}
-                  transition={{
-                    duration: 2.0,
-                    repeat: Infinity,
-                    ease: "easeOut",
-                    delay: 0.8
+                    ease: "easeIn",
+                    delay: 0.3
                   }}
                 />
               </svg>
             </div>
+
           </div>
         </motion.div>
       </motion.div>
