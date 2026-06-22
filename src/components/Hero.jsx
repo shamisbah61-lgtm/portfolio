@@ -1,6 +1,5 @@
 import { useState, useEffect } from "react"
 import TechOrbit from "./TechOrbit"
-import Satellite from "./Satellite"
 
 function Hero() {
 
@@ -22,15 +21,12 @@ function Hero() {
   }, [])
 
   return (
-    <section className="min-h-screen flex items-center pt-24 relative overflow-hidden">
-      
-      {/* Background Satellite */}
-      <Satellite />
+    <section className="min-h-screen flex items-center pt-24">
 
       <div className="max-w-6xl mx-auto px-6 grid md:grid-cols-2 gap-12 items-center">
 
         {/* LEFT */}
-        <div className="text-center md:text-left relative z-10">
+        <div className="text-center md:text-left">
 
           <h1 className="text-4xl md:text-6xl font-bold leading-tight">
             Hi, I'm <span className="text-cyan-400">Misbah</span>
