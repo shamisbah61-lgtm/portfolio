@@ -9,6 +9,7 @@ import Footer from "./components/Footer"
 import Galaxy from "./components/Galaxy"
 import Cursor from "./components/Cursor"
 import Loader from "./components/Loader"
+import Chatbot from "./components/Chatbot"
 
 
 function App() {
@@ -20,6 +21,7 @@ function App() {
 
       <Galaxy />
       <Cursor />
+      {!loading && <Chatbot />}
 
       {/* WEBSITE CONTENT */}
       <div
